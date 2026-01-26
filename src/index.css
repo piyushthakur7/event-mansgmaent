@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  --color-primary: #C5A059;
+  /* Gold */
+  --color-primary-light: #E5C585;
+  --color-secondary: #F9F5F0;
+  /* Cream/Off-white */
+  --color-text: #2C2C2C;
+  /* Soft Black */
+  --color-text-light: #666666;
+  --color-accent: #8A3324;
+  /* Deep Red/Maroon - subtle accent */
+  --color-background: #FFFFFF;
+
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Outfit', sans-serif;
+
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Refinements */
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.8;
+  /* Increased line height for readability */
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  /* Smoother text */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  /* Lighter headings look more premium */
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 2rem;
+  /* Adjusted for better scale */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  border: none;
+  outline: none;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+/* Bespoke Buttons */
+.btn {
+  display: inline-block;
+  padding: 16px 40px;
+  background-color: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+  border-radius: 0;
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: var(--color-text);
+  transition: width 0.4s ease;
+  z-index: -1;
+}
+
+.btn:hover {
+  color: #fff;
+  transform: none;
+  /* Removed generic transform */
+}
+
+.btn:hover::before {
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary::before {
+  background-color: #a88645;
+}
+
+
+/* Layout Utilities */
+.section-padding {
+  padding: 120px 0;
+  /* More breathing room */
+}
+
+.editorial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 80px;
+  margin-bottom: 120px;
+}
+
+.editorial-grid.reversed {
+  direction: rtl;
+  /* Simple way to swap, ensure text direction is reset inside */
+}
+
+.editorial-grid.reversed>* {
+  direction: ltr;
+}
+
+@media (max-width: 768px) {
+
+  .editorial-grid,
+  .editorial-grid.reversed {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    direction: ltr;
+  }
+}
+
+/* Image styling */
+.img-frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.img-frame:hover img {
+  transform: scale(1.05);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
