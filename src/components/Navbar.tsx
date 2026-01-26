@@ -71,12 +71,11 @@ const Navbar: React.FC = () => {
                             className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
                             style={({ isActive }) => ({
                                 textDecoration: 'none',
-                                color: 'var(--color-text)',
                                 fontFamily: 'var(--font-heading)',
                                 fontSize: '1.1rem',
                                 letterSpacing: '0.5px',
                                 transition: 'color 0.3s',
-                                color: isActive ? 'var(--color-primary)' : 'inherit',
+                                color: isActive ? 'var(--color-primary)' : 'var(--color-text)',
                                 borderBottom: isActive ? '2px solid var(--color-primary)' : '2px solid transparent'
                             })}
                         >

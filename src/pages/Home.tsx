@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star } from 'lucide-react';
-import { services, destinations, testimonials } from '../data';
+import { destinations } from '../data';
 
 const Home: React.FC = () => {
     return (
