@@ -28,9 +28,9 @@ const Contact: React.FC = () => {
 
     return (
         <>
-            <div style={{ backgroundColor: 'var(--color-primary)', padding: '100px 0 60px', textAlign: 'center', color: '#fff' }}>
+            <div className="page-header" style={{ backgroundColor: 'var(--color-primary)', color: '#fff' }}>
                 <h1 style={{ color: '#fff' }}>Contact Us</h1>
-                <p>Start planning your dream event today</p>
+                <p style={{ color: 'rgba(255,255,255,0.8)' }}>Start planning your dream event today</p>
             </div>
 
             <section className="section">
@@ -79,28 +79,28 @@ const Contact: React.FC = () => {
                     {/* Form */}
                     <div style={{ backgroundColor: '#fff', padding: '30px', boxShadow: '0 10px 40px rgba(0,0,0,0.08)' }}>
                         <h3 style={{ marginBottom: '20px' }}>Inquiry Form</h3>
-                        <form onSubmit={handleSubmit} style={{ display: 'grid', gap: '20px' }}>
+                        <form onSubmit={handleSubmit}>
 
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-                                <div>
-                                    <label style={{ display: 'block', marginBottom: '5px', fontSize: '0.9rem', fontWeight: 500 }}>Name</label>
-                                    <input required name="name" type="text" placeholder="Your Name" onChange={handleChange} style={inputStyle} />
+                            <div className="form-grid">
+                                <div className="form-group">
+                                    <label className="form-label">Name</label>
+                                    <input required name="name" type="text" placeholder="Your Name" onChange={handleChange} className="form-control" />
                                 </div>
-                                <div>
-                                    <label style={{ display: 'block', marginBottom: '5px', fontSize: '0.9rem', fontWeight: 500 }}>Phone</label>
-                                    <input required name="phone" type="tel" placeholder="Your Phone" onChange={handleChange} style={inputStyle} />
+                                <div className="form-group">
+                                    <label className="form-label">Phone</label>
+                                    <input required name="phone" type="tel" placeholder="Your Phone" onChange={handleChange} className="form-control" />
                                 </div>
                             </div>
 
-                            <div>
-                                <label style={{ display: 'block', marginBottom: '5px', fontSize: '0.9rem', fontWeight: 500 }}>Email</label>
-                                <input required name="email" type="email" placeholder="Your Email" onChange={handleChange} style={inputStyle} />
+                            <div className="form-group">
+                                <label className="form-label">Email</label>
+                                <input required name="email" type="email" placeholder="Your Email" onChange={handleChange} className="form-control" />
                             </div>
 
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-                                <div>
-                                    <label style={{ display: 'block', marginBottom: '5px', fontSize: '0.9rem', fontWeight: 500 }}>Event Type</label>
-                                    <select name="eventType" onChange={handleChange} style={inputStyle}>
+                            <div className="form-grid">
+                                <div className="form-group">
+                                    <label className="form-label">Event Type</label>
+                                    <select name="eventType" onChange={handleChange} className="form-select">
                                         <option value="">Select Type</option>
                                         <option value="Wedding">Wedding</option>
                                         <option value="Corporate">Corporate</option>
@@ -108,50 +108,40 @@ const Contact: React.FC = () => {
                                         <option value="Other">Other</option>
                                     </select>
                                 </div>
-                                <div>
-                                    <label style={{ display: 'block', marginBottom: '5px', fontSize: '0.9rem', fontWeight: 500 }}>Event Date</label>
-                                    <input name="date" type="date" onChange={handleChange} style={inputStyle} />
+                                <div className="form-group">
+                                    <label className="form-label">Event Date</label>
+                                    <input name="date" type="date" onChange={handleChange} className="form-control" />
                                 </div>
                             </div>
 
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-                                <div>
-                                    <label style={{ display: 'block', marginBottom: '5px', fontSize: '0.9rem', fontWeight: 500 }}>Est. Budget</label>
-                                    <input name="budget" type="text" placeholder="e.g. 5 Lakhs" onChange={handleChange} style={inputStyle} />
+                            <div className="form-grid">
+                                <div className="form-group">
+                                    <label className="form-label">Est. Budget</label>
+                                    <input name="budget" type="text" placeholder="e.g. 5 Lakhs" onChange={handleChange} className="form-control" />
                                 </div>
-                                <div>
-                                    <label style={{ display: 'block', marginBottom: '5px', fontSize: '0.9rem', fontWeight: 500 }}>No. of Guests</label>
-                                    <input name="guests" type="number" placeholder="e.g. 200" onChange={handleChange} style={inputStyle} />
+                                <div className="form-group">
+                                    <label className="form-label">No. of Guests</label>
+                                    <input name="guests" type="number" placeholder="e.g. 200" onChange={handleChange} className="form-control" />
                                 </div>
                             </div>
 
-                            <div>
-                                <label style={{ display: 'block', marginBottom: '5px', fontSize: '0.9rem', fontWeight: 500 }}>Location Preference</label>
-                                <input name="location" type="text" placeholder="City or Venue" onChange={handleChange} style={inputStyle} />
+                            <div className="form-group">
+                                <label className="form-label">Location Preference</label>
+                                <input name="location" type="text" placeholder="City or Venue" onChange={handleChange} className="form-control" />
                             </div>
 
-                            <div>
-                                <label style={{ display: 'block', marginBottom: '5px', fontSize: '0.9rem', fontWeight: 500 }}>Message / Requirements</label>
-                                <textarea name="message" rows={4} placeholder="Tell us more about your event..." onChange={handleChange} style={{ ...inputStyle, fontFamily: 'inherit' }}></textarea>
+                            <div className="form-group">
+                                <label className="form-label">Message / Requirements</label>
+                                <textarea name="message" rows={4} placeholder="Tell us more about your event..." onChange={handleChange} className="form-textarea"></textarea>
                             </div>
 
-                            <button type="submit" className="btn" style={{ width: '100%' }}>Send Inquiry</button>
+                            <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>Send Inquiry</button>
                         </form>
                     </div>
                 </div>
             </section>
         </>
     );
-};
-
-const inputStyle = {
-    width: '100%',
-    padding: '12px',
-    border: '1px solid #ddd',
-    borderRadius: '4px',
-    fontSize: '1rem',
-    outline: 'none',
-    transition: 'border-color 0.3s'
 };
 
 export default Contact;

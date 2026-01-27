@@ -3,10 +3,11 @@ import React from 'react';
 const About: React.FC = () => {
     return (
         <>
-            <div style={{ backgroundColor: 'var(--color-secondary)', padding: '120px 0 60px', textAlign: 'center' }}>
-                <h1 className="text-primary">About Us</h1>
+            <div className="page-header">
+                <h1>About Us</h1>
                 <p>Our Story, Philosophy, and Team</p>
             </div>
+
             <section className="section">
                 <div className="container">
                     <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
@@ -28,11 +29,11 @@ const About: React.FC = () => {
                 <div className="container text-center">
                     <h2>Our Team</h2>
                     <p className="text-muted" style={{ marginBottom: '40px' }}>Meet the experts behind your perfect event</p>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '30px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px' }}>
                         {[1, 2, 3].map((i) => (
-                            <div key={i} style={{ backgroundColor: '#fff', padding: '20px', boxShadow: '0 2px 10px rgba(0,0,0,0.05)' }}>
-                                <div style={{ width: '100px', height: '100px', backgroundColor: '#ddd', borderRadius: '50%', margin: '0 auto 15px' }}></div>
-                                <h4>Team Member {i}</h4>
+                            <div key={i} style={{ backgroundColor: '#fff', padding: '40px 20px', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
+                                <div style={{ width: '120px', height: '120px', backgroundColor: '#ddd', borderRadius: '50%', margin: '0 auto 20px' }}></div>
+                                <h3>Team Member {i}</h3>
                                 <p style={{ fontSize: '0.9rem', color: '#777' }}>Event Specialist</p>
                             </div>
                         ))}

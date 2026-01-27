@@ -10,6 +10,7 @@ const Home: React.FC = () => {
             <section style={{
                 position: 'relative',
                 height: '100vh',
+                minHeight: '600px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -18,8 +19,8 @@ const Home: React.FC = () => {
                 textAlign: 'center'
             }}>
                 <div className="container">
-                    {/* Button only, pushed to bottom via absolute positioning in CSS or inline */}
-                    <div style={{ position: 'absolute', bottom: '10%', left: 0, right: 0 }}>
+                    {/* Button pushed to bottom */}
+                    <div style={{ position: 'absolute', bottom: '10%', left: 0, right: 0, padding: '0 20px' }}>
                         <Link to="/contact" className="btn" style={{ borderColor: '#fff', color: '#fff' }}>
                             Plan Your Event
                         </Link>
@@ -35,7 +36,7 @@ const Home: React.FC = () => {
                             <span style={{ display: 'block', textTransform: 'uppercase', letterSpacing: '3px', fontSize: '0.9rem', marginBottom: '20px', color: '#888' }}>
                                 Since 2010
                             </span>
-                            <h2 style={{ marginBottom: '1.5rem', lineHeight: 1.2 }}>
+                            <h2>
                                 We Curate <span style={{ fontStyle: 'italic', fontFamily: 'serif' }}>Timeless</span> Celebrations
                             </h2>
                             <p style={{ fontSize: '1.1rem', color: '#555', marginBottom: '2rem' }}>
@@ -43,7 +44,7 @@ const Home: React.FC = () => {
                                 We believe that every wedding is a unique narrative waiting to be told.
                                 From the intimate exchange of vows to the grandest of receptions, we orchestrate every detail with precision and grace.
                             </p>
-                            <Link to="/about" style={{ borderBottom: '1px solid #000', paddingBottom: '2px', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                            <Link to="/about" style={{ borderBottom: '1px solid currentColor', paddingBottom: '2px', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
                                 Read Our Story
                             </Link>
                         </div>
@@ -64,9 +65,8 @@ const Home: React.FC = () => {
 
                     {/* Service 1 */}
                     <div className="editorial-grid">
-                        <div className="img-frame" style={{ height: '400px' }}>
-                            {/* Using Unsplash for variety, fallback to local if needed */}
-                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80" alt="Wedding Planning" style={{ height: '100%', objectFit: 'cover' }} />
+                        <div className="img-frame" style={{ aspectRatio: '4/3' }}>
+                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80" alt="Wedding Planning" />
                         </div>
                         <div>
                             <h3>Full Wedding Planning</h3>
@@ -80,8 +80,8 @@ const Home: React.FC = () => {
 
                     {/* Service 2 - Reversed */}
                     <div className="editorial-grid reversed">
-                        <div className="img-frame" style={{ height: '400px' }}>
-                            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80" alt="Destination Weddings" style={{ height: '100%', objectFit: 'cover' }} />
+                        <div className="img-frame" style={{ aspectRatio: '4/3' }}>
+                            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80" alt="Destination Weddings" />
                         </div>
                         <div>
                             <h3>Destination Weddings</h3>
@@ -98,7 +98,7 @@ const Home: React.FC = () => {
             {/* Featured Destinations - Clean Grid */}
             <section className="section-padding">
                 <div className="container">
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', marginBottom: '60px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', marginBottom: '60px', flexWrap: 'wrap', gap: '20px' }}>
                         <div>
                             <h2 style={{ margin: 0 }}>Destinations</h2>
                         </div>
@@ -110,11 +110,10 @@ const Home: React.FC = () => {
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
                         {destinations.slice(0, 3).map((dest, i) => (
                             <div key={i} className="img-frame" style={{ cursor: 'pointer' }}>
-                                <div style={{ height: '400px', marginBottom: '20px', overflow: 'hidden' }}>
+                                <div style={{ aspectRatio: '3/4', marginBottom: '20px', overflow: 'hidden' }}>
                                     <img
                                         src={dest.image}
                                         alt={dest.category}
-                                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                     />
                                 </div>
                                 <div>
@@ -131,7 +130,7 @@ const Home: React.FC = () => {
             <section className="section-padding" style={{ backgroundColor: '#1a1a1a', color: '#fff', textAlign: 'center' }}>
                 <div className="container" style={{ maxWidth: '800px' }}>
                     <Star size={30} fill="#fff" color="#fff" style={{ margin: '0 auto 30px' }} />
-                    <h2 style={{ fontFamily: 'serif', fontStyle: 'italic', fontSize: '2.5rem', lineHeight: '1.4', marginBottom: '40px', color: '#fff' }}>
+                    <h2 style={{ fontFamily: 'serif', fontStyle: 'italic', fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', lineHeight: '1.4', marginBottom: '40px', color: '#fff' }}>
                         "The team went above and beyond. It wasn't just a wedding; it was a masterpiece of coordination and beauty."
                     </h2>
                     <div>

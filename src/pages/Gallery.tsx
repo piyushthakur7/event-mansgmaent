@@ -14,14 +14,14 @@ const Gallery: React.FC = () => {
 
     return (
         <>
-            <div style={{ backgroundColor: 'var(--color-secondary)', padding: '120px 0 60px', textAlign: 'center' }}>
-                <h1 className="text-primary">Our Portfolio</h1>
+            <div className="page-header">
+                <h1>Our Portfolio</h1>
                 <p>A glimpse into our magical events</p>
             </div>
 
             <section className="section">
                 <div className="container">
-                    <div style={{ columns: '3 300px', gap: '20px' }}>
+                    <div className="gallery-grid" style={{ columns: '3 300px', gap: '20px' }}>
                         {galleryImages.map((src, i) => (
                             <div key={i} style={{ breakInside: 'avoid', marginBottom: '20px', cursor: 'pointer' }} onClick={() => setSelectedImage(src)}>
                                 <img src={src} alt="Gallery" style={{ width: '100%', borderRadius: '4px', display: 'block' }} />
@@ -37,11 +37,12 @@ const Gallery: React.FC = () => {
                     style={{
                         position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
                         backgroundColor: 'rgba(0,0,0,0.9)', zIndex: 1000,
-                        display: 'flex', alignItems: 'center', justifyContent: 'center'
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        padding: '20px'
                     }}
                     onClick={() => setSelectedImage(null)}
                 >
-                    <img src={selectedImage} alt="Full View" style={{ maxWidth: '90%', maxHeight: '90%' }} />
+                    <img src={selectedImage} alt="Full View" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
                 </div>
             )}
         </>

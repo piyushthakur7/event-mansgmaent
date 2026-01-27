@@ -17,6 +17,11 @@
   --font-body: 'Outfit', sans-serif;
 
   --transition: all 0.3s ease;
+
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
 }
 
 * {
@@ -31,10 +36,8 @@ body {
   background-color: var(--color-background);
   color: var(--color-text);
   line-height: 1.8;
-  /* Increased line height for readability */
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  /* Smoother text */
 }
 
 h1,
@@ -45,18 +48,28 @@ h5,
 h6 {
   font-family: var(--font-heading);
   font-weight: 400;
-  /* Lighter headings look more premium */
   color: #1a1a1a;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-size: 2rem;
-  /* Adjusted for better scale */
+  letter-spacing: 0.05em;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+p {
+  margin-bottom: 1rem;
 }
 
 a {
@@ -70,9 +83,11 @@ button {
   font-family: var(--font-body);
   border: none;
   outline: none;
+  background: none;
 }
 
 .container {
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 20px;
@@ -88,6 +103,10 @@ button {
 
 .text-primary {
   color: var(--color-primary);
+}
+
+.text-muted {
+  color: var(--color-text-light);
 }
 
 /* Bespoke Buttons */
@@ -107,6 +126,7 @@ button {
   position: relative;
   overflow: hidden;
   z-index: 1;
+  text-align: center;
 }
 
 .btn::before {
@@ -123,8 +143,8 @@ button {
 
 .btn:hover {
   color: #fff;
-  transform: none;
-  /* Removed generic transform */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .btn:hover::before {
@@ -137,6 +157,10 @@ button {
   color: #fff;
 }
 
+.btn-primary:hover {
+  color: #fff;
+}
+
 .btn-primary::before {
   background-color: #a88645;
 }
@@ -144,34 +168,44 @@ button {
 
 /* Layout Utilities */
 .section-padding {
-  padding: 120px 0;
-  /* More breathing room */
+  padding: clamp(60px, 10vw, 120px) 0;
 }
 
 .editorial-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 80px;
-  margin-bottom: 120px;
+  gap: clamp(40px, 8vw, 100px);
+  margin-bottom: clamp(60px, 10vw, 120px);
 }
 
 .editorial-grid.reversed {
-  direction: rtl;
-  /* Simple way to swap, ensure text direction is reset inside */
+  /* We will handle reversal via order in flex or manual placement implies grid areas, 
+     but keeping the current class structure for now */
 }
 
-.editorial-grid.reversed>* {
-  direction: ltr;
+.editorial-grid.reversed> :first-child {
+  order: 2;
 }
 
-@media (max-width: 768px) {
+.editorial-grid.reversed> :last-child {
+  order: 1;
+}
+
+@media (max-width: 900px) {
 
   .editorial-grid,
   .editorial-grid.reversed {
     grid-template-columns: 1fr;
     gap: 40px;
-    direction: ltr;
+  }
+
+  .editorial-grid.reversed> :first-child {
+    order: unset;
+  }
+
+  .editorial-grid.reversed> :last-child {
+    order: unset;
   }
 }
 
@@ -179,17 +213,39 @@ button {
 .img-frame {
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 .img-frame img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .img-frame:hover img {
   transform: scale(1.05);
+}
+
+/* Page Header Utility */
+.page-header {
+  background-color: var(--color-secondary);
+  padding: clamp(80px, 15vh, 160px) 0 clamp(40px, 8vh, 80px);
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.page-header h1 {
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.page-header p {
+  font-size: 1.2rem;
+  color: var(--color-text-light);
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 /* Scrollbar */
@@ -204,4 +260,209 @@ button {
 ::-webkit-scrollbar-thumb {
   background: var(--color-primary);
   border-radius: 4px;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #fff;
+  color: var(--color-text);
+  border-bottom: 1px solid #f0f0f0;
+  padding-top: 20px;
+  position: relative;
+  z-index: 50;
+}
+
+.navbar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar-header {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brand-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: var(--color-text);
+}
+
+.brand-subtitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: #666;
+  margin-top: 5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.desktop-logo {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.desktop-logo img {
+  height: clamp(50px, 8vw, 80px);
+  object-fit: contain;
+}
+
+.desktop-menu {
+  width: 100%;
+  border-top: 1px solid #e0e0e0;
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+  color: var(--color-text);
+  border-bottom: 2px solid transparent;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+.nav-link.active {
+  border-bottom-color: var(--color-primary);
+}
+
+.mobile-toggle {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  background-color: white;
+  overflow: hidden;
+  border-top: 1px solid #eee;
+}
+
+.mobile-menu-inner {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .desktop-menu {
+    display: none;
+  }
+
+  .desktop-logo {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.form-control,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text);
+  background-color: #fcfcfc;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--color-primary);
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Service Card Styles */
+.service-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.service-card {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.service-card:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.service-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.service-image-placeholder {
+  flex: 1;
+  min-width: 300px;
+  height: 300px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #eee;
 }
