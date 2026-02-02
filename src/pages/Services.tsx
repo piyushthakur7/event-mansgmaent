@@ -16,8 +16,8 @@ const Services: React.FC = () => {
                     <div className="service-card-wrapper">
                         {services.map((service) => (
                             <div key={service.id} className="service-card">
-                                <div className="service-image-placeholder">
-                                    <span style={{ color: '#aaa' }}>Service Image</span>
+                                <div className="img-frame" style={{ flex: 1, minWidth: '300px', height: '400px' }}>
+                                    <img src={service.image} alt={service.title} />
                                 </div>
                                 <div className="service-content">
                                     <h2 style={{ marginBottom: '20px', color: 'var(--color-primary)' }}>{service.title}</h2>

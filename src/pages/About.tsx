@@ -32,7 +32,7 @@ const About: React.FC = () => {
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px' }}>
                         {[1, 2, 3].map((i) => (
                             <div key={i} style={{ backgroundColor: '#fff', padding: '40px 20px', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
-                                <div style={{ width: '120px', height: '120px', backgroundColor: '#ddd', borderRadius: '50%', margin: '0 auto 20px' }}></div>
+                                <img src={`/gallery/image_${40 + i}.jpg`} alt={`Team Member ${i}`} style={{ width: '120px', height: '120px', borderRadius: '50%', objectFit: 'cover', margin: '0 auto 20px', display: 'block' }} />
                                 <h3>Team Member {i}</h3>
                                 <p style={{ fontSize: '0.9rem', color: '#777' }}>Event Specialist</p>
                             </div>

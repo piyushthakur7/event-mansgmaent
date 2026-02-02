@@ -1,13 +1,6 @@
 import React, { useState } from 'react';
 
-const galleryImages = [
-    "https://images.unsplash.com/photo-1519225448526-0a09ad31f71a?auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1511285560982-1351cdeb9821?auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1520854221256-17451cc330e7?auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1530023367847-a683933f4172?auto=format&fit=crop&q=80"
-];
+const galleryImages = Array.from({ length: 58 }, (_, i) => `/gallery/image_${i + 1}.jpg`);
 
 const Gallery: React.FC = () => {
     const [selectedImage, setSelectedImage] = useState<string | null>(null);

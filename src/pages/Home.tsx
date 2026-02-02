@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { destinations } from '../data';
 
+const heroImages = [
+    '/hero_images/hero_1.jpg',
+    '/hero_images/hero_2.jpg',
+    '/hero_images/hero_3.jpg',
+    '/hero_images/hero_4.jpg'
+];
+
 const Home: React.FC = () => {
+    const [currentImage, setCurrentImage] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentImage((prev) => (prev + 1) % heroImages.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
+
     return (
         <>
             {/* Hero Section */}
@@ -14,14 +31,36 @@ const Home: React.FC = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                background: 'linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url("/assets/hero_pexels.jpg") no-repeat center center/cover',
+                overflow: 'hidden',
                 color: '#fff',
-                textAlign: 'center'
+                textAlign: 'center',
+                backgroundColor: '#000'
             }}>
-                <div className="container">
-                    {/* Button pushed to bottom */}
-                    <div style={{ position: 'absolute', bottom: '10%', left: 0, right: 0, padding: '0 20px' }}>
-                        <Link to="/contact" className="btn" style={{ borderColor: '#fff', color: '#fff' }}>
+                <AnimatePresence>
+                    <motion.div
+                        key={currentImage}
+                        initial={{ opacity: 0, scale: 1.1 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 1.5 }}
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url("${heroImages[currentImage]}")`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            zIndex: -1
+                        }}
+                    />
+                </AnimatePresence>
+
+                <div className="container" style={{ position: 'relative', zIndex: 1, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', paddingBottom: '10%' }}>
+                    {/* Moved content wrapper to manage layout better */}
+                    <div style={{ padding: '0 20px' }}>
+                        <Link to="/contact" className="btn" style={{ borderColor: '#fff', color: '#fff', backdropFilter: 'blur(5px)' }}>
                             Plan Your Event
                         </Link>
                     </div>
@@ -49,7 +88,7 @@ const Home: React.FC = () => {
                             </Link>
                         </div>
                         <div className="img-frame">
-                            <img src="/assets/image2.png" alt="Decoration Detail" />
+                            <img src="/gallery/image_25.jpg" alt="Decoration Detail" />
                         </div>
                     </div>
                 </div>
@@ -66,7 +105,7 @@ const Home: React.FC = () => {
                     {/* Service 1 */}
                     <div className="editorial-grid">
                         <div className="img-frame" style={{ aspectRatio: '4/3' }}>
-                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80" alt="Wedding Planning" />
+                            <img src="/gallery/image_5.jpg" alt="Wedding Planning" />
                         </div>
                         <div>
                             <h3>Full Wedding Planning</h3>
@@ -81,7 +120,7 @@ const Home: React.FC = () => {
                     {/* Service 2 - Reversed */}
                     <div className="editorial-grid reversed">
                         <div className="img-frame" style={{ aspectRatio: '4/3' }}>
-                            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80" alt="Destination Weddings" />
+                            <img src="/gallery/image_15.jpg" alt="Destination Weddings" />
                         </div>
                         <div>
                             <h3>Destination Weddings</h3>

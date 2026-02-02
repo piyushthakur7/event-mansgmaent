@@ -15,25 +15,29 @@ export const services = [
     id: 1,
     title: "Full Wedding Planning",
     description: "From the first consultation to the final farewell, we handle every detail of your dream wedding. Venue selection, vendor management, design, and execution.",
-    icon: "HeartHandshake"
+    icon: "HeartHandshake",
+    image: "/gallery/image_6.jpg"
   },
   {
     id: 2,
     title: "Partial Planning",
     description: "Perfect for couples who have started planning but need expert guidance for the final stretch and day-of coordination to ensure everything runs smoothly.",
-    icon: "CalendarCheck"
+    icon: "CalendarCheck",
+    image: "/gallery/image_7.jpg"
   },
   {
     id: 3,
     title: "Destination Weddings",
     description: "Create unforgettable memories with a stunning destination wedding. We specialize in logistical planning and coordination for weddings across India and abroad.",
-    icon: "Plane"
+    icon: "Plane",
+    image: "/gallery/image_8.jpg"
   },
   {
     id: 4,
     title: "Corporate & Social Events",
     description: "Beyond weddings, we deliver exceptional experiences for corporate galas, milestone birthdays, anniversaries, and social gatherings.",
-    icon: "Users"
+    icon: "Users",
+    image: "/gallery/image_9.jpg"
   }
 ];
 
@@ -41,27 +45,27 @@ export const destinations = [
   {
     category: "Palace",
     description: "Experience the grandeur of royalty with a palace wedding in Rajasthan or Hyderabad.",
-    image: "https://images.unsplash.com/photo-1585938389612-a552a28d6914?auto=format&fit=crop&q=80"
+    image: "/gallery/image_10.jpg"
   },
   {
     category: "Beach",
     description: "Exchange vows with the sand between your toes and the sound of waves in Goa or Kerala.",
-    image: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80"
+    image: "/gallery/image_20.jpg"
   },
   {
     category: "Hill Station",
     description: "A serene and romantic setting amidst the misty mountains of Mussoorie or Ooty.",
-    image: "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&q=80"
+    image: "/gallery/image_30.jpg"
   },
   {
     category: "Resort",
     description: "Luxury and comfort combined for a relaxed and opulent wedding celebration.",
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80"
+    image: "/gallery/image_40.jpg"
   },
   {
     category: "City",
     description: "Chic and cosmopolitan weddings in top luxury hotels in Delhi, Mumbai, or Bangalore.",
-    image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80"
+    image: "/gallery/image_50.jpg"
   }
 ];
 
