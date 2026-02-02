@@ -52,12 +52,12 @@ const Home: React.FC = () => {
                             backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url("${heroImages[currentImage]}")`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
-                            zIndex: -1
+                            zIndex: 0
                         }}
                     />
                 </AnimatePresence>
 
-                <div className="container" style={{ position: 'relative', zIndex: 1, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', paddingBottom: '10%' }}>
+                <div className="container" style={{ position: 'relative', zIndex: 2, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', paddingBottom: '10%' }}>
                     {/* Moved content wrapper to manage layout better */}
                     <div style={{ padding: '0 20px' }}>
                         <Link to="/contact" className="btn" style={{ borderColor: '#fff', color: '#fff', backdropFilter: 'blur(5px)' }}>
@@ -104,7 +104,7 @@ const Home: React.FC = () => {
 
                     {/* Service 1 */}
                     <div className="editorial-grid">
-                        <div className="img-frame" style={{ aspectRatio: '4/3' }}>
+                        <div className="img-frame">
                             <img src="/gallery/image_5.jpg" alt="Wedding Planning" />
                         </div>
                         <div>
@@ -119,7 +119,7 @@ const Home: React.FC = () => {
 
                     {/* Service 2 - Reversed */}
                     <div className="editorial-grid reversed">
-                        <div className="img-frame" style={{ aspectRatio: '4/3' }}>
+                        <div className="img-frame">
                             <img src="/gallery/image_15.jpg" alt="Destination Weddings" />
                         </div>
                         <div>
