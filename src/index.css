@@ -264,9 +264,9 @@ button {
 
 /* Navbar Styles */
 .navbar {
-  background-color: #fff;
-  color: var(--color-text);
-  border-bottom: 1px solid #f0f0f0;
+  background-color: #000;
+  color: #fff;
+  border-bottom: 1px solid #222;
   padding-top: 20px;
   position: relative;
   z-index: 50;
@@ -294,13 +294,13 @@ button {
   margin: 0;
   font-weight: 400;
   letter-spacing: 1px;
-  color: var(--color-text);
+  color: #fff;
 }
 
 .brand-subtitle {
   font-family: var(--font-body);
   font-size: 1rem;
-  color: #666;
+  color: #aaa;
   margin-top: 5px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -316,11 +316,12 @@ button {
 .desktop-logo img {
   height: clamp(50px, 8vw, 80px);
   object-fit: contain;
+  filter: invert(1);
 }
 
 .desktop-menu {
   width: 100%;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid #222;
   padding: 15px 0;
   display: flex;
   justify-content: center;
@@ -333,7 +334,7 @@ button {
   font-size: 1.1rem;
   letter-spacing: 0.5px;
   transition: color 0.3s;
-  color: var(--color-text);
+  color: #fff;
   border-bottom: 2px solid transparent;
 }
 
@@ -358,9 +359,9 @@ button {
 }
 
 .mobile-menu {
-  background-color: white;
+  background-color: #000;
   overflow: hidden;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #222;
 }
 
 .mobile-menu-inner {
