@@ -14,18 +14,18 @@ const Destinations: React.FC = () => {
                 <div className="container">
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
                         {destinations.map((dest, i) => (
-                            <div key={i} style={{ backgroundColor: '#fff', boxShadow: '0 5px 15px rgba(0,0,0,0.05)', borderRadius: '0', overflow: 'hidden' }}>
-                                <div className="img-frame" style={{ height: '250px' }}>
+                            <div key={i} style={{ backgroundColor: '#fff', border: '1px solid #f0f0f0', borderRadius: '0', overflow: 'hidden' }}>
+                                <div className="img-frame" style={{ height: '400px' }}>
                                     <img
                                         src={dest.image}
                                         alt={dest.category}
                                     />
                                 </div>
-                                <div style={{ padding: '30px' }}>
-                                    <h3 style={{ marginBottom: '10px' }}>{dest.category}</h3>
-                                    <p style={{ color: '#666', marginBottom: '20px' }}>{dest.description}</p>
-                                    <Link to="/contact" style={{ color: 'var(--color-primary)', fontWeight: 600, textTransform: 'uppercase', fontSize: '0.85rem', letterSpacing: '1px' }}>
-                                        Plan a {dest.category} Wedding &rarr;
+                                <div style={{ padding: '40px 30px', textAlign: 'center' }}>
+                                    <h3 style={{ marginBottom: '15px', fontSize: '1.8rem', fontFamily: 'var(--font-heading)' }}>{dest.category}</h3>
+                                    <p style={{ color: '#666', marginBottom: '25px', lineHeight: '1.6' }}>{dest.description}</p>
+                                    <Link to="/contact" className="btn btn-outline" style={{ display: 'inline-block', fontSize: '0.8rem', padding: '12px 30px' }}>
+                                        Explore {dest.category}
                                     </Link>
                                 </div>
                             </div>

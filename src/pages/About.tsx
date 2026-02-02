@@ -24,20 +24,71 @@ const About: React.FC = () => {
                 </div>
             </section>
 
-            {/* Team/Credibility Section placeholder */}
-            <section className="section" style={{ backgroundColor: '#f9f9f9' }}>
-                <div className="container text-center">
-                    <h2>Our Team</h2>
-                    <p className="text-muted" style={{ marginBottom: '40px' }}>Meet the experts behind your perfect event</p>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px' }}>
-                        {[1, 2, 3].map((i) => (
-                            <div key={i} style={{ backgroundColor: '#fff', padding: '40px 20px', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
-                                <img src={`/gallery/image_${40 + i}.jpg`} alt={`Team Member ${i}`} style={{ width: '120px', height: '120px', borderRadius: '50%', objectFit: 'cover', margin: '0 auto 20px', display: 'block' }} />
-                                <h3>Team Member {i}</h3>
-                                <p style={{ fontSize: '0.9rem', color: '#777' }}>Event Specialist</p>
-                            </div>
-                        ))}
+            {/* Vision Section */}
+            <section className="section" style={{ backgroundColor: '#f5f5f5' }}>
+                <div className="container">
+                    <div className="editorial-grid">
+                        <div className="img-frame" style={{ aspectRatio: '1/1' }}>
+                            <img src="/gallery/image_12.jpg" alt="Our Vision" />
+                        </div>
+                        <div>
+                            <span style={{ display: 'block', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.9rem', marginBottom: '15px', color: '#888' }}>Our Vision</span>
+                            <h2 style={{ marginBottom: '25px' }}>Crafting Moments into Memories</h2>
+                            <p style={{ marginBottom: '20px', color: '#666' }}>
+                                At Tirupati Event Management, we see ourselves as more than just planners; we are architects of joy.
+                                Our vision is to transform the chaotic process of event planning into a seamless, artistic journey for our clients.
+                            </p>
+                            <p style={{ color: '#666' }}>
+                                We strive to set new benchmarks in the industry by combining traditional Indian hospitality with global standards of luxury and management.
+                                Every event we touch is treated as a unique canvas, painted with the colors of your desires and our expertise.
+                            </p>
+                        </div>
                     </div>
+                </div>
+            </section>
+
+            {/* Core Values Section */}
+            <section className="section">
+                <div className="container">
+                    <div className="text-center" style={{ marginBottom: '60px' }}>
+                        <h2>Why Choose Tirupati?</h2>
+                        <p className="text-muted">The pillars that define our legacy</p>
+                    </div>
+
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
+                        <div style={{ padding: '30px', border: '1px solid #eee', backgroundColor: '#fff' }}>
+                            <h3 style={{ fontSize: '1.5rem', color: 'var(--color-primary)', marginBottom: '15px' }}>Unmatched Attention to Detail</h3>
+                            <p style={{ color: '#666' }}>
+                                We believe that perfection lies in the details. From the precise shade of the table linens to the timing of the entry music,
+                                nothing is left to chance. Our team meticulously plans every micro-moment of your event.
+                            </p>
+                        </div>
+                        <div style={{ padding: '30px', border: '1px solid #eee', backgroundColor: '#fff' }}>
+                            <h3 style={{ fontSize: '1.5rem', color: 'var(--color-primary)', marginBottom: '15px' }}>Personalized Experience</h3>
+                            <p style={{ color: '#666' }}>
+                                No two weddings are alike, and neither are our plans. We take the time to understand your story, your tastes, and your dreams,
+                                curating a bespoke experience that is authentically yours.
+                            </p>
+                        </div>
+                        <div style={{ padding: '30px', border: '1px solid #eee', backgroundColor: '#fff' }}>
+                            <h3 style={{ fontSize: '1.5rem', color: 'var(--color-primary)', marginBottom: '15px' }}>Vendor Network</h3>
+                            <p style={{ color: '#666' }}>
+                                Over a decade, we have cultivated relationships with the finest florists, caterers, and decorators in the industry.
+                                Our clients gain exclusive access to premium services and negotiated rates that others simply cannot match.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Call to Action */}
+            <section className="section" style={{ backgroundColor: '#000', color: '#fff', textAlign: 'center' }}>
+                <div className="container">
+                    <h2 style={{ color: '#fff', marginBottom: '30px' }}>Ready to Begin Your Journey?</h2>
+                    <p style={{ color: '#ccc', maxWidth: '600px', margin: '0 auto 40px' }}>
+                        Let us handle the logistics so you can focus on the celebration. Contact us today for a consultation.
+                    </p>
+                    <a href="/contact" className="btn" style={{ borderColor: '#fff', color: '#fff' }}>Get in Touch</a>
                 </div>
             </section>
         </>

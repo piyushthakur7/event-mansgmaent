@@ -13,31 +13,17 @@ export const navLinks = [
 export const services = [
   {
     id: 1,
-    title: "Full Wedding Planning",
-    description: "From the first consultation to the final farewell, we handle every detail of your dream wedding. Venue selection, vendor management, design, and execution.",
-    icon: "HeartHandshake",
-    image: "/gallery/image_6.jpg"
+    title: "Corporate Events",
+    description: "Elevate your business gatherings with our premium corporate event services. From high-stakes board meetings and international conferences to grand product launches and annual galas, we deliver professionalism and polish. We understand the nuances of brand representation and ensure every detail aligns with your corporate identity.",
+    icon: "Users",
+    image: "/gallery/corporate_service.png"
   },
   {
     id: 2,
-    title: "Partial Planning",
-    description: "Perfect for couples who have started planning but need expert guidance for the final stretch and day-of coordination to ensure everything runs smoothly.",
-    icon: "CalendarCheck",
-    image: "/gallery/image_7.jpg"
-  },
-  {
-    id: 3,
-    title: "Destination Weddings",
-    description: "Create unforgettable memories with a stunning destination wedding. We specialize in logistical planning and coordination for weddings across India and abroad.",
-    icon: "Plane",
-    image: "/gallery/image_8.jpg"
-  },
-  {
-    id: 4,
-    title: "Corporate & Social Events",
-    description: "Beyond weddings, we deliver exceptional experiences for corporate galas, milestone birthdays, anniversaries, and social gatherings.",
-    icon: "Users",
-    image: "/gallery/image_9.jpg"
+    title: "Wedding",
+    description: "Your fairytale begins here. We specialize in creating breathtaking weddings that reflect your unique love story. Whether it's a traditional royal ceremony or a modern chic reception, our team handles venue sourcing, decor design, hospitality, and entertainment to create a seamless and magical experience for you and your guests.",
+    icon: "HeartHandshake",
+    image: "/gallery/wedding_service.png"
   }
 ];
 
@@ -45,27 +31,27 @@ export const destinations = [
   {
     category: "Palace",
     description: "Experience the grandeur of royalty with a palace wedding in Rajasthan or Hyderabad.",
-    image: "/gallery/image_10.jpg"
+    image: "/destinations/palace.png"
   },
   {
     category: "Beach",
     description: "Exchange vows with the sand between your toes and the sound of waves in Goa or Kerala.",
-    image: "/gallery/image_20.jpg"
+    image: "/destinations/beach.png"
   },
   {
     category: "Hill Station",
     description: "A serene and romantic setting amidst the misty mountains of Mussoorie or Ooty.",
-    image: "/gallery/image_30.jpg"
+    image: "/destinations/hill.png"
   },
   {
     category: "Resort",
     description: "Luxury and comfort combined for a relaxed and opulent wedding celebration.",
-    image: "/gallery/image_40.jpg"
+    image: "/destinations/resort.png"
   },
   {
     category: "City",
     description: "Chic and cosmopolitan weddings in top luxury hotels in Delhi, Mumbai, or Bangalore.",
-    image: "/gallery/image_50.jpg"
+    image: "/destinations/city.png"
   }
 ];
 
