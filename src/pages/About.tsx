@@ -13,7 +13,7 @@ const About: React.FC = () => {
                     <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
                         <h2 style={{ marginBottom: '20px' }}>Designing Dreams Since 2010</h2>
                         <p style={{ marginBottom: '20px', fontSize: '1.1rem', color: '#555' }}>
-                            Tirupati Event Management began with a simple passion: to bring families together and celebrate love in the most magnificent way possible.
+                            Aromma Alfresco Events began with a simple passion: to bring families together and celebrate love in the most magnificent way possible.
                             Over the years, we have grown into one of India's most trusted event planning companies, known for our impeccable execution and personalized approach.
                         </p>
                         <p style={{ marginBottom: '40px', fontSize: '1.1rem', color: '#555' }}>
@@ -35,7 +35,7 @@ const About: React.FC = () => {
                             <span style={{ display: 'block', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.9rem', marginBottom: '15px', color: '#888' }}>Our Vision</span>
                             <h2 style={{ marginBottom: '25px' }}>Crafting Moments into Memories</h2>
                             <p style={{ marginBottom: '20px', color: '#666' }}>
-                                At Tirupati Event Management, we see ourselves as more than just planners; we are architects of joy.
+                                At Aromma Alfresco Events, we see ourselves as more than just planners; we are architects of joy.
                                 Our vision is to transform the chaotic process of event planning into a seamless, artistic journey for our clients.
                             </p>
                             <p style={{ color: '#666' }}>
@@ -51,7 +51,7 @@ const About: React.FC = () => {
             <section className="section">
                 <div className="container">
                     <div className="text-center" style={{ marginBottom: '60px' }}>
-                        <h2>Why Choose Tirupati?</h2>
+                        <h2>Why Choose Aromma Alfresco?</h2>
                         <p className="text-muted">The pillars that define our legacy</p>
                     </div>
 

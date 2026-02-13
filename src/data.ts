@@ -1,5 +1,5 @@
 
-export const companyName = "Tirupati Event Management";
+export const companyName = "Aromma Alfresco Events";
 
 export const navLinks = [
   { name: "Home", path: "/" },
@@ -58,7 +58,7 @@ export const destinations = [
 export const testimonials = [
   {
     name: "Priya & Rahul",
-    text: "Tirupati Event Management made our dream wedding a reality. Their attention to detail and calm demeanor made the whole process stress-free.",
+    text: "Aromma Alfresco Events made our dream wedding a reality. Their attention to detail and calm demeanor made the whole process stress-free.",
     location: "Wedding in Udaipur"
   },
   {
@@ -75,6 +75,6 @@ export const testimonials = [
 
 export const contactInfo = {
   phone: "+91 98765 43210",
-  email: "info@tirupatievents.com",
+  email: "info@arommaalfresco.com",
   address: "123, Luxury Lane, South Delhi, India"
 };

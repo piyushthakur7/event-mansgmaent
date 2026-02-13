@@ -8,18 +8,36 @@ const heroImages = [
     '/hero_images/hero_1.jpg',
     '/hero_images/hero_2.jpg',
     '/hero_images/hero_3.jpg',
-    '/hero_images/hero_4.jpg'
+    '/hero_images/hero_4.jpg',
+    '/hero_images/hero_5.jpg',
+    '/hero_images/hero_6.jpg',
+    '/hero_images/hero_7.jpg',
+    '/hero_images/hero_8.png',
+    '/hero_images/hero_9.png'
 ];
 
 const Home: React.FC = () => {
     const [currentImage, setCurrentImage] = useState(0);
 
+    // Function to handle manual slide change
+    const nextSlide = () => {
+        setCurrentImage((prev) => (prev + 1) % heroImages.length);
+    };
+
+    const prevSlide = () => {
+        setCurrentImage((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+    };
+
+    const goToSlide = (index: number) => {
+        setCurrentImage(index);
+    };
+
     useEffect(() => {
         const timer = setInterval(() => {
-            setCurrentImage((prev) => (prev + 1) % heroImages.length);
+            nextSlide();
         }, 5000);
         return () => clearInterval(timer);
-    }, []);
+    }, [currentImage]); // Add currentImage dependency to reset timer on change
 
     return (
         <>
@@ -36,7 +54,7 @@ const Home: React.FC = () => {
                 textAlign: 'center',
                 backgroundColor: '#000'
             }}>
-                <AnimatePresence>
+                <AnimatePresence mode='wait'>
                     <motion.div
                         key={currentImage}
                         initial={{ opacity: 0, scale: 1.1 }}
@@ -57,10 +75,49 @@ const Home: React.FC = () => {
                     />
                 </AnimatePresence>
 
-                <div className="container" style={{ position: 'relative', zIndex: 2, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', paddingBottom: '10%' }}>
-                    {/* Moved content wrapper to manage layout better */}
+                {/* Slider Controls */}
+                <button
+                    onClick={prevSlide}
+                    style={{
+                        position: 'absolute', left: '20px', zIndex: 10, background: 'rgba(255,255,255,0.1)',
+                        border: 'none', color: '#fff', padding: '15px', borderRadius: '50%', cursor: 'pointer',
+                        backdropFilter: 'blur(5px)'
+                    }}
+                    aria-label="Previous Slide"
+                >
+                    &#10094;
+                </button>
+                <button
+                    onClick={nextSlide}
+                    style={{
+                        position: 'absolute', right: '20px', zIndex: 10, background: 'rgba(255,255,255,0.1)',
+                        border: 'none', color: '#fff', padding: '15px', borderRadius: '50%', cursor: 'pointer',
+                        backdropFilter: 'blur(5px)'
+                    }}
+                    aria-label="Next Slide"
+                >
+                    &#10095;
+                </button>
+
+                {/* Indicators */}
+                <div style={{ position: 'absolute', bottom: '30px', zIndex: 10, display: 'flex', gap: '10px' }}>
+                    {heroImages.map((_, index) => (
+                        <div
+                            key={index}
+                            onClick={() => goToSlide(index)}
+                            style={{
+                                width: '12px', height: '12px', borderRadius: '50%',
+                                backgroundColor: index === currentImage ? '#fff' : 'rgba(255,255,255,0.5)',
+                                cursor: 'pointer', transition: 'background-color 0.3s'
+                            }}
+                        />
+                    ))}
+                </div>
+
+                <div className="container" style={{ position: 'relative', zIndex: 2, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', paddingBottom: '3%' }}>
+                    {/* Content can go here if needed, centered */}
                     <div style={{ padding: '0 20px' }}>
-                        <Link to="/contact" className="btn" style={{ borderColor: '#fff', color: '#fff', backdropFilter: 'blur(5px)' }}>
+                        <Link to="/contact" className="btn" style={{ borderColor: '#fff', color: '#fff', backdropFilter: 'blur(5px)', marginBottom: '0' }}>
                             Plan Your Event
                         </Link>
                     </div>
@@ -79,7 +136,7 @@ const Home: React.FC = () => {
                                 We Curate <span style={{ fontStyle: 'italic', fontFamily: 'serif' }}>Timeless</span> Celebrations
                             </h2>
                             <p style={{ fontSize: '1.1rem', color: '#555', marginBottom: '2rem' }}>
-                                Tirupati Event Management isn't just about logistics; it's about storytelling.
+                                Aromma Alfresco Events isn't just about logistics; it's about storytelling.
                                 We believe that every wedding is a unique narrative waiting to be told.
                                 From the intimate exchange of vows to the grandest of receptions, we orchestrate every detail with precision and grace.
                             </p>
